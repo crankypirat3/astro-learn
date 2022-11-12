@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+// import Card from '../components/Card.astro';
+import CardComp  from '../components/CardComp';
 
 import { useSanityClient } from 'astro-sanity';
 
@@ -19,7 +20,7 @@ const project1 = await getProjects();
 <Layout title="Welcome to Astro.">
 	<div>
 		
-		<p>{
+		<!-- <p>{
 			project1.map((project: any) => {
 				return (
 					<div class="card">
@@ -28,6 +29,17 @@ const project1 = await getProjects();
 					</div>
 				)
 			})
+			} -->
+
+
+		<!-- </p> -->
+		<p>
+			{
+				project1.map((project: any) => {
+					return (
+						<CardComp name={project.projectName} />
+					)
+				})
 			}
 		</p>
 			<!-- <p>test</p> -->
