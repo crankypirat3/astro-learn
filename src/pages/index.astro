@@ -5,6 +5,8 @@ import ProjectCard  from '../components/ProjectCard';
 
 import { useSanityClient,createImageBuilder } from 'astro-sanity';
 
+import TypeWriteEffect from "../components/TypeWriteEffect";
+
 export const imageBuilder = createImageBuilder(useSanityClient());
 
 export function urlForImage(source: any) {
@@ -26,10 +28,17 @@ const project1 = await getProjects();
 <Layout title="Welcome to Astro.">
 	<div>
 		<div class="overflow-y-scroll scroll-smooth snap-y max-h-[100vh]">
-			<!-- <div id="top" class="scroll-py-10 snap-center ">
-				<Hero class=""/>
+			<div id="top" class="scroll-py-10 snap-center ">
+				
+			<div class="h-[100vh] bg-gray-200 flex justify-center items-center">
+				
+				<div >
+				<h1 class="text-5xl">Jack Sweeny:</h1>
+				<TypeWriteEffect client:load />
+				</div>
+</div>
 			</div>
-			<div id="skills" class="scroll-py-10  scroll-smooth  snap-center h-screen ">
+			<!-- <div id="skills" class="scroll-py-10  scroll-smooth  snap-center h-screen ">
 				<Skills />
 			</div> -->
 			<div id="projects" class="w-full scroll-py-10  scroll-smooth  min-h-screen snap-start bg-purple-200 flex flex-col  justify-center items-center">
