@@ -1,4 +1,4 @@
-import {AiFillGithub} from 'react-icons/ai';
+import {AiFillGithub} from 'react-icons/ai/index.js';
 
 
 
