@@ -7,6 +7,7 @@ import { useSanityClient,createImageBuilder } from 'astro-sanity';
 
 import TypeWriteEffect from "../components/TypeWriteEffect";
 import ContactForm from '../components/ContactForm';
+import Navbar from '../components/Navbar.astro';
 
 export const imageBuilder = createImageBuilder(useSanityClient());
 
@@ -26,7 +27,7 @@ const project1 = await getProjects();
 ---
 
 <Layout title="Welcome to Astro.">
-	
+	<Navbar />
 	<div class="overflow-y-scroll scroll-smooth snap-y max-h-[100vh]">
 		<div id="top" class="scroll-py-10 snap-center ">
 			<div class="h-[100vh] bg-gray-200 flex justify-center items-center">
@@ -82,7 +83,9 @@ const project1 = await getProjects();
 				<ContactForm client:load />
 			</div>
 		</div> 
-			<!-- <Footer /> -->
+		<footer class="h-28 border-t bg-gray-400 w-full flex justify-center items-center opacity-70 snap-always snap-end">
+			<p class="text-white text-2xl text-center">Jacks Web portfolio </p>
+		 </footer>
 	</div>
 		
 
