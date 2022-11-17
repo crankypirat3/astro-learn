@@ -1,13 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
 // import Card from '../components/Card.astro';
-import ProjectCard  from '../components/ProjectCard';
 
 import { useSanityClient,createImageBuilder } from 'astro-sanity';
 
+// Section Components 
+import ProjectCard  from '../components/ProjectCard';
 import TypeWriteEffect from "../components/TypeWriteEffect";
 import ContactForm from '../components/ContactForm';
 import Navbar from '../components/Navbar.astro';
+import Skill from '../components/Skill';
 
 export const imageBuilder = createImageBuilder(useSanityClient());
 
@@ -18,11 +20,19 @@ export function urlForImage(source: any) {
 export async function getProjects() {
   const query = `*[_type == "project"]`;
   const project = await useSanityClient().fetch(query);
-  console.log(project)
+//   console.log(project)
   return project;
 }
 
+export async function getSkills() {
+	const query = `*[_type == "skill"]`;
+  const skill = await useSanityClient().fetch(query);
+//   console.log(project)
+  return skill;
+}
+
 const project1 = await getProjects();
+const skills = await getSkills();
 
 ---
 
@@ -32,38 +42,23 @@ const project1 = await getProjects();
 		<div id="top" class="scroll-py-10 snap-center ">
 			<div class="h-[100vh] bg-gray-200 flex justify-center items-center">
 				<div >
-					<h1 class="text-5xl">Jack Sweeny:</h1>
+					<h1 class="text-5xl text-gray-800">Jack Sweeny:</h1>
 					<TypeWriteEffect client:load />
 				</div>
 			</div>
 		</div>
-		<div id="skills" class="scroll-py-10  scroll-smooth  snap-center h-screen ">
-			<div class="h-[100vh] bg-cyan-200 flex flex-col justify-center items-center">
-				<h2 class=" text-5xl font-semibold text-gray-700">Skills</h2>
-				<div class="p-8 " >
-					<!-- <p class="p-5 text-4xl text-center">Skills</p> -->
-					<div class="flex  flex-col items-center">
-						<h3 class="text-2xl text-gray-700 font-bold tracking-wider mb-2 underline decoration-white underline-offset-8">Primary Tech Stack</h3>
-						<!-- <p class="my-2 text-xl text-gray-700 font-bold tracking-wider">Javascript/Typescript</p> -->
-						<p class="my-2 text-xl text-gray-700 font-bold tracking-wider">Typesript</p>
-						<!-- <p class="my-2 text-xl text-gray-700 font-bold tracking-wider">Next JS</p> -->
-			
-						<p class="my-2 text-xl text-gray-700 font-bold tracking-wider">React JS</p>
-			
-						<p class="my-2 text-xl text-gray-700 font-bold tracking-wider">Tailwind CSS</p>
-					</div>
-					<div class="flex  flex-col items-center justify-start mt-6">
-						<h3 class="text-xl text-gray-700 font-bold tracking-wider mb-2 underline decoration-white underline-offset-8">Additional Skills</h3>
-						<p class="my-2 text-md text-gray-700 font-bold tracking-wider">REST API</p>
-						<!-- <p class="my-2  text-gray-700 font-bold tracking-wider">Responsive Design</p> -->
-						<p class="my-2  text-gray-700 font-bold tracking-wider">Python</p>
-						<p class="my-2  text-gray-700 font-bold tracking-wider">JAM Stack</p>
-						<p class="my-2  text-gray-700 font-bold tracking-wider">Next JS</p>
-						<p class="my-2  text-gray-700 font-bold tracking-wider">SQL</p>
-			
-					</div>
-				</div>
+		<div id="skills" class="scroll-py-10  scroll-smooth flex items-center justify-center flex-col snap-center h-screen bg-cyan-100">
+			<h2 class="text-4xl font-bold text-gray-700 mb-6 2xl:pt-0">Skills</h2>
+			<div class=" grid grid-cols-3 gap-4 max-w-3xl mx-auto p-5 rounded-3xl ">
+				{
+					skills.map((skill: any) => (
+						<Skill name={skill.skillName} imageLink={urlForImage(skill.skillImage).url()} />
+
+					))
+				}
+				
 			</div>
+			
 		</div>
 		<div id="projects" class="w-full scroll-py-10  scroll-smooth  min-h-screen snap-start bg-purple-200 flex flex-col  justify-center items-center">
 			

@@ -22,11 +22,11 @@ const ContactForm = () => {
 
   const handleChange = (e: any) => {
     if (e.target.name == "email") {
-        console.log(email)
+        // console.log(email)
       setEmail(e.target.value);
     } else {
       setComments(e.target.value);
-      console.log(comments)
+      // console.log(comments)
     }
   };
 
@@ -35,7 +35,6 @@ const ContactForm = () => {
     <div className="mx-2">
       {state.submitting ? (
         <div className="min-h-[420px] bg-gray-100 border border-primary flex flex-col justify-center items-center max-w-xl mx-auto rounded-lg">
-          {/* <p className="text-4xl absolute z-50 text-rose-500 font-bold tracking-wide">Loading</p> */}
           <HashLoader 
             color="#f43f5e" 
             size={80}

@@ -21,7 +21,6 @@ type Props = {
             </div>
             <h3 className="py-2 text-center">{name}</h3>
                 <div className='w-full h-[100px] flex flex-wrap items-start my-2 overflow-hidden'>
-
                         {
                             tags.map((tag) => (
                                 <p className=' grow-0 m-1 px-2 py-1 border border-gray-500 bg-stone-100 text-gray-800  border-opacity-50'>{tag}</p>
