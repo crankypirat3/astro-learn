@@ -15,7 +15,7 @@ type Props = {
 
  const ProjectCard = ({name, imageLink, projectLink, projectGithubLink, tags}: Props) => {
     return (
-            <div className="w-[320px] flex flex-col shrink-0 m-4 bg-white py-4 rounded-lg">
+            <div className="w-[320px] flex flex-col shrink-0 m-4 bg-white py-4 rounded-lg shadow-violet-800 shadow-2xl ">
             <div  className="h-40 w-full bg-blue-200">
                 <img className='h-full w-full' src={imageLink} alt="" />
             </div>

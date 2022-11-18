@@ -20,14 +20,12 @@ export function urlForImage(source: any) {
 export async function getProjects() {
   const query = `*[_type == "project"]`;
   const project = await useSanityClient().fetch(query);
-//   console.log(project)
   return project;
 }
 
 export async function getSkills() {
 	const query = `*[_type == "skill"]`;
   const skill = await useSanityClient().fetch(query);
-//   console.log(project)
   return skill;
 }
 
@@ -38,25 +36,26 @@ const skills = await getSkills();
 
 <Layout title="Welcome to Astro.">
 	<Navbar />
+	
 	<div class="overflow-y-scroll scroll-smooth snap-y max-h-[100vh]">
-		<div id="top" class="scroll-py-10 snap-center ">
-			<div class="h-[100vh] bg-gray-200 flex justify-center items-center">
-				<div >
-					<h1 class="text-5xl text-gray-800">Jack Sweeny:</h1>
+		<div id="top" class="scroll-py-10 snap-center relative">
+			<div class=" w-full	 h-[400px] absolute z-10 top-[30%] skew-y-[170deg] opacity-50 bg-indigo-400 "></div>	
+			<div class="h-[100vh] bg-gray-200 flex flex-col justify-center items-center overflow-x-hidden">	
+					<h1 class="text-3xl tracking-wide sm:text-5xl text-gray-700 z-40">Jack Sweeny:</h1>
 					<TypeWriteEffect client:load />
-				</div>
 			</div>
 		</div>
-		<div id="skills" class="scroll-py-10  scroll-smooth flex items-center justify-center flex-col snap-center h-screen bg-cyan-100">
-			<h2 class="text-4xl font-bold text-gray-700 mb-6 2xl:pt-0">Skills</h2>
-			<div class=" grid grid-cols-3 gap-4 max-w-3xl mx-auto p-5 rounded-3xl ">
+		<div id="skills" class=" relative scroll-py-10  scroll-smooth flex items-center justify-center flex-col snap-center h-screen bg-cyan-100">
+			<div class=" w-full	 h-[450px] absolute z-0 top-[32%] skew-y-[15deg] opacity-40 bg-gray-400 "></div>	
+
+			<h2 class="text-4xl font-bold text-gray-700 mb-6 2xl:pt-0 z-30">Skills</h2>
+			<div class=" grid grid-cols-3 gap-4 max-w-3xl mx-auto p-5 rounded-3xl z-30">
 				{
 					skills.map((skill: any) => (
 						<Skill name={skill.skillName} imageLink={urlForImage(skill.skillImage).url()} />
 
 					))
 				}
-				
 			</div>
 			
 		</div>
@@ -75,7 +74,7 @@ const skills = await getSkills();
 		</div>
 		<div id="contact" class="scroll-py-10  scroll-smooth  snap-center h-screen flex flex-col bg-indigo-400  justify-center items-center">
 			<div class="flex flex-col w-full">
-				<h2 class="text-4xl text-center text-white font-bold track my-4 ">Get In Touch</h2>
+				<h2 class="text-4xl text-center text-white font-bold track mb-6 ">Get In Touch</h2>
 				<ContactForm client:load />
 			</div>
 		</div> 

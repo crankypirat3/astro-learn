@@ -7,7 +7,7 @@ const words = ['Web Developer', 'Student', 'Travelor'];
 const TypeWriteEffect = () => {
     
     return (
-      <div className="text-blue-400 text-3xl p-4 rounded-lg text-center">
+      <div className="text-gray-700  text-2xl sm:text-3xl p-4 rounded-lg text-center z-40">
         <Typewriter
         words={words}
         loop={true}

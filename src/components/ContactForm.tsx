@@ -30,7 +30,6 @@ const ContactForm = () => {
     }
   };
 
-  // const { HashLoader } = HashLoader;
   return (
     <div className="mx-2">
       {state.submitting ? (
@@ -60,7 +59,7 @@ const ContactForm = () => {
                 onChange={handleChange}
                 placeholder="Email"
                 required
-                className="px-4 py-3 outline-none border-b-2 border-transparent focus:border-b-2 focus:border-blue-400"
+                className="px-4 py-3 outline-none border-b-2 border-transparent focus:border-b-2 focus:border-indigo-400"
               />
 
               <ValidationError
@@ -81,7 +80,7 @@ const ContactForm = () => {
                 value={comments}
                 onChange={handleChange}
                 placeholder="What are you looking for?"
-                className=" resize-none max-h-50 w-full max-w-3xl mx-auto my-2 px-2 py-3 border-b-2 outline-none border-transparent focus:border-b-2 focus:border-blue-400"
+                className=" resize-none max-h-50 w-full max-w-3xl mx-auto my-2 px-2 py-3 border-b-2 outline-none border-transparent focus:border-b-2 focus:border-indigo-400"
               ></textarea>
 
                 <ValidationError
